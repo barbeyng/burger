@@ -1,0 +1,65 @@
+<div class='container-fluid'>
+
+    <div class='row text-center'>
+        <div class='col-12'>
+            <img src='../public/assets/img/eatdaburger.png' class='img-fluid'>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class='container'>
+    <div class='row'>
+
+        <div class='col-6'>
+            {{#each burgers}} {{#unless devoured}}
+            <div class='row'>
+                <div class='col-9'>
+                    <p class='form-control burger_name'>
+                        {{id}}. {{burger_name}}
+                    </p>
+                </div>
+                <div class='col-3'>
+                    <form method='POST' action='/devourburger/{{id}}'>
+                        <button type='submit' class='btn btn-warning devour-button'>Nom Nom</button>
+                    </form>
+                </div>
+            </div>
+            {{/unless}} {{/each}}
+        </div>
+
+        <div class='col-6'>
+            {{#each burgers}} {{#if devoured}}
+            <div class='col-10'>
+                <p class='text-left form-control burger_name'>
+                    {{id}}. {{burger_name}}
+                </p>
+            </div>
+            {{/if}} {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class='row'>
+    <div class="col-4"></div>
+    <div class='col-4'>
+        <br><br>
+        <p class="text-center">Craving a burger? Add it to the list and devour it!</p>
+        <form method='POST' action='/createburger'>
+            <div class='form-group'>
+                <textarea class='form-control' id='userBurger' name='userBurger' rows='1'></textarea>
+            </div>
+            <button type='submit' class='btn btn-warning'>Submit</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </form>
+    </div>
+    <div class='col-4'>
+
+    </div>
+</div>
